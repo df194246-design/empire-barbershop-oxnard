@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empire Barbershop | Haircuts in Oxnard, CA</title>
+  <meta name="description" content="Empire Barbershop at 2711 S Rose Ave, Suite D101, Oxnard. Haircuts, shaves, fades, and more. Walk-ins welcome. Call (805) 487-0070 or request an appointment." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0d0d0d;
+      --black-2: #171717;
+      --bone: #f3eee6;
+      --bone-2: #e7e0d4;
+      --red: #c81d25;
+      --red-hot: #e03131;
+      --mute: #8a847b;
+      --ink: #161616;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    #top, #services, #reviews, #book, #visit { scroll-margin-top: 88px; }
+    body {
+      font-family: "Schibsted Grotesk", system-ui, sans-serif;
+      background: var(--bone);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, .btn, input, select, textarea { font-family: inherit; }
+    :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+    .skip { position: absolute; left: 1rem; top: -40px; background: var(--red); color: #fff; padding: .5rem .8rem; z-index: 80; font-weight: 700; }
+    .skip:focus { top: 1rem; }
+    .wrap { width: min(var(--max), calc(100% - 2rem)); margin-inline: auto; }
+    .preview-banner {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: .55rem 1rem;
+    }
+    .site-header {
+      position: sticky; top: 0; z-index: 40;
+      background: var(--black);
+      color: var(--bone);
+      border-bottom: 3px solid var(--red);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+    .brand-mark { width: 28px; height: 42px; background:
+      repeating-linear-gradient(135deg, #fff 0 6px, var(--red) 6px 12px, #1d4e89 12px 18px, #fff 18px 24px);
+      border-radius: 8px; border: 2px solid #fff; flex: 0 0 28px; }
+    .brand b { font-family: "Bebas Neue", sans-serif; font-size: 1.7rem; letter-spacing: .08em; display: block; line-height: .9; }
+    .brand small { display: block; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: #c9c3b8; }
+    .nav-panel { display: flex; align-items: center; gap: 1.3rem; }
+    .nav-links { display: flex; gap: 1.2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: .92rem; font-weight: 600; color: #d7d1c6; }
+    .nav-links a:hover { color: #fff; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 2px solid var(--bone); background: transparent; cursor: pointer; position: relative; }
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { content: ""; position: absolute; left: 10px; right: 10px; height: 2px; background: var(--bone); }
+    .menu-toggle::before { top: 13px; } .menu-toggle span { top: 21px; } .menu-toggle::after { bottom: 13px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+      text-decoration: none; border: 2px solid transparent; padding: .72rem 1.15rem;
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem;
+      cursor: pointer; transition: .15s transform, .15s background, .15s color;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+    .btn-red:hover { background: var(--red-hot); }
+    .btn-light { background: var(--bone); color: var(--black); border-color: var(--bone); }
+    .btn-ghost { background: transparent; color: var(--bone); border-color: #5c5c5c; }
+    .btn-ghost:hover { border-color: var(--bone); }
+    .btn-dark { background: var(--black); color: var(--bone); border-color: var(--black); }
+    .btn-lg { padding: .95rem 1.4rem; font-size: .9rem; }
+    .hero { background: var(--black); color: var(--bone); padding: 3.6rem 0 4rem; position: relative; overflow: hidden; }
+    .hero::after {
+      content: ""; position: absolute; right: -40px; top: 0; bottom: 0; width: 120px;
+      background: repeating-linear-gradient(180deg, #fff 0 18px, var(--red) 18px 36px, #1d4e89 36px 54px, #fff 54px 72px);
+      opacity: .9;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; position: relative; z-index: 1; }
+    .eyebrow { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--red-hot); font-weight: 700; margin-bottom: .8rem; }
+    h1, h2 { font-family: "Bebas Neue", sans-serif; line-height: .9; letter-spacing: .03em; }
+    h1 { font-size: clamp(3.4rem, 9vw, 6.2rem); margin-bottom: 1rem; }
+    h1 span { color: var(--red-hot); }
+    .lead { max-width: 34rem; color: #cfc8bc; font-size: 1.08rem; margin-bottom: 1.5rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+    .stat-box { background: var(--black-2); border: 1px solid #2a2a2a; padding: 1.2rem; }
+    .stat-box dt { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin-bottom: .25rem; }
+    .stat-box dd { font-weight: 700; margin-bottom: .85rem; }
+    .stat-box dd:last-child { margin-bottom: 0; }
+    .status { display: inline-flex; align-items: center; gap: .4rem; }
+    .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--mute); display: inline-block; }
+    .status.open i { background: #3ddc84; } .status.closed i { background: var(--red); }
+    .stripe { background: var(--red); color: #fff; font-family: "Bebas Neue", sans-serif; letter-spacing: .14em; font-size: 1.15rem; padding: .55rem 0; overflow: hidden; white-space: nowrap; }
+    .stripe span { display: inline-block; padding-right: 2.2rem; }
+    section { padding: 4.2rem 0; }
+    .section-head { max-width: 36rem; margin-bottom: 2rem; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .section-head p { color: #4a4742; margin-top: .7rem; }
+    .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .card { background: #fff; border-left: 6px solid var(--red); padding: 1.2rem 1.15rem; box-shadow: 0 8px 24px rgba(0,0,0,.05); }
+    .card h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.6rem; letter-spacing: .05em; }
+    .card p { color: #4a4742; }
+    .reviews { background: var(--black); color: var(--bone); }
+    .reviews .section-head p { color: #bdb6aa; }
+    .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .review { border: 1px solid #2c2c2c; padding: 1.15rem; background: var(--black-2); }
+    .stars { color: var(--red-hot); letter-spacing: .1em; }
+    .review blockquote { margin: .6rem 0 .9rem; font-style: italic; }
+    .review cite { font-style: normal; font-size: .88rem; color: #bdb6aa; }
+    .disclaimer { margin-top: 1.1rem; font-size: .84rem; color: #9a948a; }
+    .book { background: var(--bone-2); }
+    .book-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.6rem; align-items: start; }
+    form { background: #fff; border: 2px solid var(--black); padding: 1.25rem; display: grid; gap: .85rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
+    label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem; }
+    input, select, textarea { width: 100%; border: 2px solid #111; padding: .7rem .75rem; font-size: 1rem; background: #fff; border-radius: 0; }
+    textarea { min-height: 100px; resize: vertical; }
+    .form-msg { display: none; padding: .8rem; border: 2px solid var(--black); background: #e8f6ec; font-weight: 600; }
+    .form-msg.show { display: block; } .form-msg.error { background: #fde8e8; }
+    .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+    .side { background: var(--black); color: var(--bone); padding: 1.4rem; }
+    .side h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.8rem; margin-bottom: .5rem; }
+    .side p { color: #cfc8bc; margin-bottom: 1rem; }
+    .hours { list-style: none; display: grid; gap: .35rem; margin-bottom: 1.2rem; }
+    .hours li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed #333; padding-bottom: .3rem; font-size: .92rem; }
+    footer { background: var(--black); color: #bdb6aa; padding: 2rem 0 5.6rem; }
+    .foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .foot-links { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; }
+    .foot-links a { text-decoration: none; color: var(--bone); font-weight: 600; }
+    .foot-note { margin-top: 1.1rem; font-size: .8rem; max-width: 70ch; }
+    .credit { margin-top: .7rem; font-size: .82rem; }
+    .credit a { color: #fff; font-weight: 700; }
+    .mobile-bar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: var(--black); padding: .65rem .8rem calc(.65rem + env(safe-area-inset-bottom)); gap: .5rem; border-top: 3px solid var(--red); }
+    .mobile-bar .btn { flex: 1; }
+    @media (max-width: 900px) {
+      .hero::after { width: 14px; right: 0; }
+      .hero-grid, .svc-grid, .rev-grid, .book-grid, .form-row { grid-template-columns: 1fr; }
+      .menu-toggle { display: block; }
+      .nav-panel { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--black); border-bottom: 3px solid var(--red); padding: 1rem; flex-direction: column; align-items: stretch; }
+      .nav.open .nav-panel { display: flex; }
+      .nav-links { flex-direction: column; }
+      .mobile-bar { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#book">Skip to appointment form</a>
+  <div class="preview-banner">Preview website for <strong>Empire Barbershop</strong> · not the official site. Details are from public listings and may need a quick check.</div>
+  <header class="site-header">
+    <div class="wrap nav" id="nav">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span><b>Empire</b><small>Barbershop · Oxnard</small></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <div class="nav-panel">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#visit">Hours</a></li>
+        </ul>
+        <a class="btn btn-red" href="#book">Request a cut</a>
+      </div>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">2711 S Rose Ave, Suite D101</p>
+          <h1>Fresh cuts.<br><span>Oxnard shop.</span></h1>
+          <p class="lead">Empire Barbershop is a local shop for haircuts, shaves, fades, and more. Their Instagram says walk-ins are welcome. Call or request an appointment below.</p>
+          <div class="hero-actions">
+            <a class="btn btn-red btn-lg" href="#book">Request an appointment</a>
+            <a class="btn btn-ghost btn-lg" href="tel:+18054870070">Call (805) 487-0070</a>
+          </div>
+        </div>
+        <dl class="stat-box">
+          <dt>Status</dt><dd><span class="status" id="openStatus"><i></i> <span id="openText">Checking hours</span></span></dd>
+          <dt>Google rating</dt><dd>4.9 stars</dd>
+          <dt>Address</dt><dd>2711 S Rose Ave, Suite D101<br>Oxnard, CA 93033</dd>
+          <dt>Social</dt><dd><a href="https://www.instagram.com/empire_barbershop805/" target="_blank" rel="noopener">@empire_barbershop805</a></dd>
+        </dl>
+      </div>
+    </section>
+    <div class="stripe" aria-hidden="true"><span>Walk-ins welcome · Haircuts · Shaves · Fades · Tapers · Designs · Oxnard, CA · Walk-ins welcome · Haircuts · Shaves · Fades · Tapers · Designs · Oxnard, CA ·</span></div>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" style="color:var(--red)">In the chair</p>
+          <h2>Services</h2>
+          <p>Yelp lists haircuts, haircut and shave, and shave-only visits. Public reviews also mention fades, tapers, designs, and cuts for kids. Confirm details when you book.</p>
+        </div>
+        <div class="svc-grid">
+          <article class="card"><h3>Haircuts</h3><p>Standard cuts listed on the shop's Yelp page.</p></article>
+          <article class="card"><h3>Haircut and shave</h3><p>A combined haircut and shave, also listed on Yelp.</p></article>
+          <article class="card"><h3>Shave only</h3><p>Come in for a shave on its own.</p></article>
+          <article class="card"><h3>Fades, tapers, and designs</h3><p>These styles come up often in public reviews of the shop.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Public feedback</p>
+          <h2>What people have written</h2>
+          <p>Short excerpts from public listings for Empire Barbershop. This page does not invent testimonials.</p>
+        </div>
+        <div class="rev-grid">
+          <article class="review"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“Pony is hands down the best barber in the 805! Very quick, precise and professional. He is very friendly to all of the clients and makes everyone feel welcome.”</blockquote><cite>Public review excerpt</cite></article>
+          <article class="review"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“One of the best haircut I have ever received. As soon as I walked in the owner was very nice... Bryan will make you feel and look like a million dollars.”</blockquote><cite>Public review excerpt</cite></article>
+          <article class="review"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“Amazing barbershop, always clean, good environment. Isaac never fails to get me right with the best haircuts.”</blockquote><cite>Public review excerpt</cite></article>
+        </div>
+        <p class="disclaimer">Listings show a 4.9 Google rating. Review counts differ by site, so this preview does not publish a count. <a href="https://www.google.com/maps/search/?api=1&amp;query=Empire+Barbershop+2711+S+Rose+Ave+D101+Oxnard+CA+93033" target="_blank" rel="noopener">Read more on Google Maps</a>.</p>
+      </div>
+    </section>
+    <section class="book" id="book">
+      <div class="wrap book-grid">
+        <div>
+          <div class="section-head">
+            <p class="eyebrow" style="color:var(--red)">Get in the book</p>
+            <h2>Request an appointment</h2>
+            <p>Tell the shop what you need. Prefer to walk in or talk it through? Call <a href="tel:+18054870070">(805) 487-0070</a>.</p>
+          </div>
+          <form id="quoteForm" novalidate>
+            <div class="form-row">
+              <div><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+              <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required /></div>
+            </div>
+            <div class="form-row">
+              <div><label for="email">Email (optional)</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+              <div>
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a service</option>
+                  <option>Haircut</option>
+                  <option>Haircut and shave</option>
+                  <option>Shave only</option>
+                  <option>Fade or taper</option>
+                  <option>Design</option>
+                  <option>Kids cut</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div><label for="date">Preferred date (optional)</label><input id="date" name="preferredDate" type="date" /></div>
+              <div><label for="barber">Preferred barber (optional)</label><input id="barber" name="barber" type="text" placeholder="Or leave blank" /></div>
+            </div>
+            <div><label for="description">Notes</label><textarea id="description" name="description" placeholder="Style, time of day, or anything the shop should know"></textarea></div>
+            <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
+            <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+            <button class="btn btn-dark btn-lg" type="submit" id="submitBtn">Send request</button>
+          </form>
+        </div>
+        <aside class="side" id="visit">
+          <h3>Hours and location</h3>
+          <p>2711 S Rose Ave, Suite D101<br>Oxnard, CA 93033</p>
+          <ul class="hours">
+            <li><span>Monday to Thursday</span><span>9:00 AM to 7:00 PM</span></li>
+            <li><span>Friday</span><span>9:00 AM to 8:00 PM</span></li>
+            <li><span>Saturday</span><span>8:00 AM to 7:00 PM</span></li>
+            <li><span>Sunday</span><span>9:00 AM to 3:00 PM</span></li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="tel:+18054870070">Call the shop</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Empire+Barbershop+2711+S+Rose+Ave+D101+Oxnard+CA+93033" target="_blank" rel="noopener">Google Maps</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span><b>Empire</b><small>Barbershop · Oxnard</small></span></a>
+        <div class="foot-links">
+          <a href="tel:+18054870070">(805) 487-0070</a>
+          <a href="#book">Request an appointment</a>
+          <a href="https://www.instagram.com/empire_barbershop805/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Empire+Barbershop+2711+S+Rose+Ave+D101+Oxnard+CA+93033" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+      </div>
+      <p class="foot-note">This is a free preview website prepared for Empire Barbershop in Oxnard, CA, and is not the official site. Hours, services, and review excerpts were gathered from public listings (including Yelp, Google-style place pages, and Instagram) and may need confirmation. Some listings show slightly different Friday, Saturday, or Sunday hours. © Empire Barbershop, Oxnard, CA.</p>
+      <p class="credit">Preview by <a href="https://playmkr-studios.pages.dev/">PLAYMKR Studios</a></p>
+    </div>
+  </footer>
+  <div class="mobile-bar" aria-label="Quick actions">
+    <a class="btn btn-ghost" href="tel:+18054870070">Call now</a>
+    <a class="btn btn-red" href="#book">Book</a>
+  </div>
+  <script>
+    const BUSINESS_CONFIG = {
+      businessName: "Empire Barbershop",
+      notificationEmail: "df194246@gmail.com",
+      phone: "(805) 487-0070",
+      address: "2711 S Rose Ave, Suite D101, Oxnard, CA 93033",
+      timezone: "America/Los_Angeles",
+      mapsQuery: "Empire Barbershop 2711 S Rose Ave D101 Oxnard CA 93033"
+    };
+    (function () {
+      function headerOffset() {
+        var header = document.querySelector(".site-header");
+        return (header ? header.getBoundingClientRect().height : 70) + 16;
+      }
+      function scrollToId(id) {
+        var el = document.getElementById(id);
+        if (!el) return false;
+        window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - headerOffset()), behavior: "smooth" });
+        return true;
+      }
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest("a[href^='#']");
+        if (!a) return;
+        var href = a.getAttribute("href");
+        if (!href || href === "#") return;
+        var id = decodeURIComponent(href.slice(1));
+        if (!document.getElementById(id)) return;
+        e.preventDefault();
+        scrollToId(id);
+        try { history.replaceState(null, "", href); } catch (err) {}
+      });
+    })();
+    (function () {
+      var nav = document.getElementById("nav");
+      var toggle = document.getElementById("menuToggle");
+      if (!toggle) return;
+      toggle.addEventListener("click", function () {
+        var open = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      });
+      nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          nav.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    })();
+    (function () {
+      var text = document.getElementById("openText");
+      var status = document.getElementById("openStatus");
+      if (!text) return;
+      var parts = new Intl.DateTimeFormat("en-US", { timeZone: BUSINESS_CONFIG.timezone, weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date());
+      var map = {}; parts.forEach(function (p) { map[p.type] = p.value; });
+      var day = map.weekday;
+      var minutes = parseInt(map.hour, 10) * 60 + parseInt(map.minute, 10);
+      var openMin = 9 * 60, closeMin = 19 * 60;
+      if (day === "Fri") closeMin = 20 * 60;
+      if (day === "Sat") { openMin = 8 * 60; closeMin = 19 * 60; }
+      if (day === "Sun") { openMin = 9 * 60; closeMin = 15 * 60; }
+      var open = minutes >= openMin && minutes < closeMin;
+      status.classList.add(open ? "open" : "closed");
+      text.textContent = open ? "Open now" : "Closed now";
+    })();
+    (function () {
+      var date = document.getElementById("date");
+      if (date) date.setAttribute("min", new Intl.DateTimeFormat("en-CA", { timeZone: BUSINESS_CONFIG.timezone }).format(new Date()));
+      var form = document.getElementById("quoteForm");
+      var msg = document.getElementById("formMsg");
+      var btn = document.getElementById("submitBtn");
+      if (!form) return;
+      function showMsg(text, isError) { msg.textContent = text; msg.classList.add("show"); msg.classList.toggle("error", !!isError); }
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (form._gotcha && form._gotcha.value) return;
+        var name = (form.name.value || "").trim();
+        var phone = (form.phone.value || "").trim();
+        var email = (form.email.value || "").trim();
+        var service = (form.service.value || "").trim();
+        var preferredDate = (form.preferredDate.value || "").trim();
+        var barber = (form.barber.value || "").trim();
+        var description = (form.description.value || "").trim();
+        if (!name || !phone || !service) { showMsg("Please fill in your name, phone, and a service.", true); return; }
+        btn.disabled = true;
+        var payload = {
+          _subject: "Appointment request - " + BUSINESS_CONFIG.businessName,
+          _template: "table", _captcha: "false",
+          type: "Appointment request", business: BUSINESS_CONFIG.businessName,
+          name: name, phone: phone, email: email || "(not provided)", service: service,
+          preferredDate: preferredDate || "(not provided)", barber: barber || "(no preference)",
+          notes: description || "(none)"
+        };
+        if (email) payload._replyto = email;
+        try {
+          fetch("https://formsubmit.co/ajax/" + BUSINESS_CONFIG.notificationEmail, {
+            method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload)
+          }).catch(function () {});
+        } catch (err) {}
+        showMsg("Thanks, " + name + ". Your request was sent. If you need to talk sooner, call " + BUSINESS_CONFIG.phone + ".", false);
+        form.reset(); btn.disabled = false;
+      });
+    })();
+  </script>
+</body>
+</html>
